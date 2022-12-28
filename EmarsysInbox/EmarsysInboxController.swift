@@ -23,7 +23,7 @@ open class EmarsysInboxController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.addSubview(EmarsysInboxConfig.headerView)
+        headerView.addSubview(EmarsysInboxConfig.headerView ?? EmarsysInboxDefaultHeaderView(backgroudColor: EmarsysInboxConfig.headerBackgroundColor, titleColor: EmarsysInboxConfig.headerForegroundColor))
         tableView.backgroundColor = EmarsysInboxConfig.bodyBackgroundColor
         refreshControl.tintColor = EmarsysInboxConfig.activityIndicatorColor?.withAlphaComponent(0.5)
         activityIndicatorView.color = EmarsysInboxConfig.activityIndicatorColor
