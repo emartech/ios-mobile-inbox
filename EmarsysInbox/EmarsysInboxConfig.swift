@@ -6,6 +6,7 @@ import UIKit
 
 public class EmarsysInboxConfig {
     
+    public static var headerView: UIView?
     public static var headerBackgroundColor: UIColor? = .color(fromHexCode: 0x5F9F9FFF)
     public static var headerForegroundColor: UIColor? = .white
     public static var bodyBackgroundColor: UIColor? = .color(fromHexCode: 0xD1EEEEFF)

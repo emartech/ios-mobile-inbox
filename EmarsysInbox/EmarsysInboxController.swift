@@ -13,7 +13,6 @@ open class EmarsysInboxController: UIViewController {
     }
     
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet public weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -24,8 +23,7 @@ open class EmarsysInboxController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.backgroundColor = EmarsysInboxConfig.headerBackgroundColor
-        headerLabel.textColor = EmarsysInboxConfig.headerForegroundColor
+        headerView.addSubview(EmarsysInboxConfig.headerView ?? EmarsysInboxDefaultHeaderView(backgroudColor: EmarsysInboxConfig.headerBackgroundColor, titleColor: EmarsysInboxConfig.headerForegroundColor))
         tableView.backgroundColor = EmarsysInboxConfig.bodyBackgroundColor
         refreshControl.tintColor = EmarsysInboxConfig.activityIndicatorColor?.withAlphaComponent(0.5)
         activityIndicatorView.color = EmarsysInboxConfig.activityIndicatorColor
