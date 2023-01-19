@@ -65,8 +65,11 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row],
             !(message.tags?.contains(EmarsysInboxTag.seen) ?? false) else { return }
-        message.tags?.append(EmarsysInboxTag.seen)
-        Emarsys.messageInbox.addTag(tag: EmarsysInboxTag.seen, messageId: message.id)
+        Emarsys.messageInbox.addTag(tag: EmarsysInboxTag.seen, messageId: message.id) { error in
+            if error == nil {
+                message.tags?.append(EmarsysInboxTag.seen)
+            }
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,11 +146,19 @@ extension EmarsysInboxController {
             let indexPath = tableView.indexPath(for: cell),
             indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return }
         if let pinnedIndex = message.tags?.firstIndex(of: EmarsysInboxTag.pinned) {
-            message.tags?.remove(at: pinnedIndex)
-            Emarsys.messageInbox.removeTag(tag: EmarsysInboxTag.pinned, messageId: message.id)
+            Emarsys.messageInbox.removeTag(tag: EmarsysInboxTag.pinned, messageId: message.id) { [weak self] error in
+                if error == nil {
+                    message.tags?.remove(at: pinnedIndex)
+                    self?.tableView.reloadData()
+                }
+            }
         } else {
-            message.tags?.append(EmarsysInboxTag.pinned)
-            Emarsys.messageInbox.addTag(tag: EmarsysInboxTag.pinned, messageId: message.id)
+            Emarsys.messageInbox.addTag(tag: EmarsysInboxTag.pinned, messageId: message.id) { [weak self] error in
+                if error == nil {
+                    message.tags?.append(EmarsysInboxTag.pinned)
+                    self?.tableView.reloadData()
+                }
+            }
         }
         tableView.reloadData()
     }

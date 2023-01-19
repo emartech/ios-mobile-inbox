@@ -37,8 +37,11 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row],
             !(message.tags?.contains(EmarsysInboxTag.opened) ?? false) else { return }
-        message.tags?.append(EmarsysInboxTag.opened)
-        Emarsys.messageInbox.addTag(tag: EmarsysInboxTag.opened, messageId: message.id)
+        Emarsys.messageInbox.addTag(tag: EmarsysInboxTag.opened, messageId: message.id) { error in
+            if error == nil {
+                message.tags?.append(EmarsysInboxTag.opened)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
