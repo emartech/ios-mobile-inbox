@@ -12,7 +12,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        Emarsys.setContact(contactFieldId: 100010824, contactFieldValue: "biancalui2")
+        Emarsys.setContact(contactFieldId: 100010824, contactFieldValue: "biancalui")
     }
     
     @IBAction func buttonClicked(_ sender: UIButton) {

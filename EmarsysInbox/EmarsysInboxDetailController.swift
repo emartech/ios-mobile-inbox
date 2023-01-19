@@ -13,12 +13,12 @@ class EmarsysInboxDetailController: UIViewController {
     var initialIndexPath: IndexPath?
     var messages: [EMSMessage]?
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = EmarsysInboxConfig.bodyBackgroundColor
     }
     
-    override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         guard !initialized, let ip = initialIndexPath else { return }
@@ -30,11 +30,11 @@ class EmarsysInboxDetailController: UIViewController {
 
 extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages?.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row],
             !(message.tags?.contains(EmarsysInboxTag.opened) ?? false) else { return }
         Emarsys.messageInbox.addTag(tag: EmarsysInboxTag.opened, messageId: message.id) { error in
@@ -44,7 +44,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: EmarsysInboxDetailCollectionViewCell.id, for: indexPath) as! EmarsysInboxDetailCollectionViewCell
         
@@ -85,7 +85,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width , height: view.frame.height - (view.safeAreaInsets.top + view.safeAreaInsets.bottom))
     }
     
