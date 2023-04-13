@@ -75,8 +75,15 @@ var highPriorityImage: UIImage?
 
 The iOS target should be iOS 11 or higher.
 
-##
+## Contributing
 
-[Code of Conduct](https://github.com/emartech/.github/blob/main/CODE_OF_CONDUCT.md)
+Should you have any suggestions or bug reports, please raise an [Emarsys support request](https://help.emarsys.com/hc/en-us/articles/360012853058-Support-at-Emarsys-Raising-a-support-request).
 
-[Licensing](https://github.com/emartech/ios-mobile-inbox/blob/master/LICENSE)
+## Code of Conduct
+
+Please see our [Code of Conduct](https://github.com/emartech/.github/blob/main/CODE_OF_CONDUCT.md) for detail.
+
+## Licensing
+
+Please see our [LICENSE](https://github.com/emartech/ios-mobile-inbox/blob/master/LICENSE) for copyright and license information.
+
