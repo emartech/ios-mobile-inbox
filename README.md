@@ -1,5 +1,7 @@
 # ios-mobile-inbox
 
+[![REUSE status](https://api.reuse.software/badge/github.com/emartech/ios-mobile-inbox)](https://api.reuse.software/info/github.com/emartech/ios-mobile-inbox)
+
 With [Emarsys SDK](https://github.com/emartech/ios-emarsys-sdk), you can [fetch inbox messages](https://github.com/emartech/ios-emarsys-sdk/wiki#7-inbox) for a user.
 
 This library is a plug and play inbox, that you can reuse and customise to your own branding.
