@@ -25,7 +25,6 @@ class EmarsysInboxDetailController: UIViewController {
         initialized = true
         collectionView.scrollToItem(at: ip, at: .left, animated: false)
     }
-    
 }
 
 extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

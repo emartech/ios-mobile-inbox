@@ -12,14 +12,14 @@ class EmarsysInboxTableViewCell: UITableViewCell {
     @IBOutlet weak var favView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
-    @IBOutlet weak var messageImageView: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var highPriorityImageView: UIImageView!
     
     var imageUrl: String?
     
     override func awakeFromNib() {
-        messageImageView.layer.cornerRadius = 15
-        messageImageView.backgroundColor = EmarsysInboxConfig.imageCellBackgroundColor
+        iconImageView.layer.cornerRadius = 15
+        iconImageView.backgroundColor = EmarsysInboxConfig.imageCellBackgroundColor
     }
     
 }
