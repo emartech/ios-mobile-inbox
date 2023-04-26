@@ -79,6 +79,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
             DispatchQueue.main.async() {
                 guard cell.imageUrl == imageUrl else { return }
                 cell.imageView.image = image
+                cell.imageView.contentMode = .scaleAspectFill
             }
         }.resume()
         

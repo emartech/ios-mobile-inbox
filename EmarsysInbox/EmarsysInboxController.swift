@@ -104,6 +104,7 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         
         guard let iconUrl = message.properties?["icon"] ?? message.imageUrl, let url = URL(string: iconUrl) else {
             cell.iconImageView.image = EmarsysInboxConfig.defaultImage
+            cell.iconImageView.contentMode = .scaleAspectFit
             return cell
         }
         cell.imageUrl = iconUrl
@@ -114,6 +115,7 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
             DispatchQueue.main.async() {
                 guard cell.imageUrl == iconUrl else { return }
                 cell.iconImageView.image = image
+                cell.iconImageView.contentMode = .scaleAspectFill
             }
         }.resume()
         
