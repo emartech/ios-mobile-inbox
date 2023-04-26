@@ -68,6 +68,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         
         guard let imageUrl = message.imageUrl, let url = URL(string: imageUrl) else {
             cell.imageView.image = EmarsysInboxConfig.defaultImage
+            cell.imageView.contentMode = .scaleAspectFit
             return cell
         }
         cell.imageUrl = imageUrl
