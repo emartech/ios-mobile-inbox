@@ -102,7 +102,8 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = message.title
         cell.bodyLabel.text = message.body
         
-        guard let iconUrl = message.properties?["icon"], let url = URL(string: iconUrl) else {
+        let iconUrl = message.properties?["icon"] ?? message.imageUrl ?? ""
+        guard let url = URL(string: iconUrl) else {
             cell.iconImageView.image = EmarsysInboxConfig.defaultImage
             return cell
         }
