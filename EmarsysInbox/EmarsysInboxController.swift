@@ -85,7 +85,7 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         cell.bodyLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         cell.favView.backgroundColor = EmarsysInboxConfig.notOpenedViewColor
         
-        cell.messageImageView.image = nil
+        cell.iconImageView.image = nil
         cell.imageUrl = nil
         
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return cell }
@@ -102,18 +102,20 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = message.title
         cell.bodyLabel.text = message.body
         
-        guard let imageUrl = message.imageUrl, let url = URL(string: imageUrl) else {
-            cell.messageImageView.image = EmarsysInboxConfig.defaultImage
+        guard let iconUrl = message.properties?["icon"] ?? message.imageUrl, let url = URL(string: iconUrl) else {
+            cell.iconImageView.image = EmarsysInboxConfig.defaultImage
+            cell.iconImageView.contentMode = .scaleAspectFit
             return cell
         }
-        cell.imageUrl = imageUrl
+        cell.imageUrl = iconUrl
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200, error == nil,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, let image = UIImage(data: data) else { return }
             DispatchQueue.main.async() {
-                guard cell.imageUrl == imageUrl else { return }
-                cell.messageImageView.image = image
+                guard cell.imageUrl == iconUrl else { return }
+                cell.iconImageView.image = image
+                cell.iconImageView.contentMode = .scaleAspectFill
             }
         }.resume()
         

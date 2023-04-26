@@ -25,7 +25,6 @@ class EmarsysInboxDetailController: UIViewController {
         initialized = true
         collectionView.scrollToItem(at: ip, at: .left, animated: false)
     }
-    
 }
 
 extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -69,6 +68,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         
         guard let imageUrl = message.imageUrl, let url = URL(string: imageUrl) else {
             cell.imageView.image = EmarsysInboxConfig.defaultImage
+            cell.imageView.contentMode = .scaleAspectFit
             return cell
         }
         cell.imageUrl = imageUrl
@@ -79,6 +79,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
             DispatchQueue.main.async() {
                 guard cell.imageUrl == imageUrl else { return }
                 cell.imageView.image = image
+                cell.imageView.contentMode = .scaleAspectFill
             }
         }.resume()
         
