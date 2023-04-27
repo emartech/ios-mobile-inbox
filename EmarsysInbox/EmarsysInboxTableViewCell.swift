@@ -9,7 +9,7 @@ class EmarsysInboxTableViewCell: UITableViewCell {
     static let id = "EmarsysInboxTableViewCell"
     
     @IBOutlet weak var favImageView: UIImageView!
-    @IBOutlet weak var favView: UIView!
+    @IBOutlet weak var notOpenedView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
@@ -19,7 +19,7 @@ class EmarsysInboxTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         iconImageView.layer.cornerRadius = 15
-        iconImageView.backgroundColor = EmarsysInboxConfig.imageCellBackgroundColor
+        iconImageView.backgroundColor = EmarsysInboxConfig.iconImageBackgroundColor
     }
     
 }

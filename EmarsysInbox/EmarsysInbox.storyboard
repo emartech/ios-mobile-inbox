@@ -25,37 +25,45 @@
                                     <constraint firstAttribute="height" constant="50" id="0pw-Sg-GQD"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="106" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-01-aXD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-01-aXD">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" red="0.81960784310000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmarsysInboxTableViewCell" rowHeight="106" id="1lk-Af-aEe" customClass="EmarsysInboxTableViewCell" customModule="EmarsysInbox" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="106"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmarsysInboxTableViewCell" rowHeight="100" id="1lk-Af-aEe" customClass="EmarsysInboxTableViewCell" customModule="EmarsysInbox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1lk-Af-aEe" id="DRa-DM-bKe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QL-C8-1FM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="106"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="100"/>
                                                     <color key="backgroundColor" red="0.3959829211" green="0.5856447816" blue="0.59385764600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="C07-jJ-ICu"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="oif-dF-ng2">
-                                                    <rect key="frame" x="11" y="10" width="25" height="25"/>
+                                                    <rect key="frame" x="10" y="10" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="rGH-jk-jHb"/>
                                                         <constraint firstAttribute="height" constant="25" id="sKe-uU-EUv"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="kyd-LL-fHE">
+                                                    <rect key="frame" x="43" y="10" width="80" height="80"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="L21-aE-Jgt"/>
+                                                        <constraint firstAttribute="height" constant="80" id="Xoo-5v-WgD"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUT-IZ-idZ">
-                                                    <rect key="frame" x="131" y="19" width="228" height="68"/>
+                                                    <rect key="frame" x="131" y="19" width="234" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmX-1g-xiv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="208" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="234" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="bRe-y3-Ih3"/>
                                                             </constraints>
@@ -64,7 +72,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jn-no-g7Z">
-                                                            <rect key="frame" x="0.0" y="22" width="228" height="46"/>
+                                                            <rect key="frame" x="0.0" y="22" width="234" height="40"/>
                                                             <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,7 +82,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="6Jn-no-g7Z" secondAttribute="trailing" id="6cu-01-Dgk"/>
-                                                        <constraint firstAttribute="trailing" secondItem="UmX-1g-xiv" secondAttribute="trailing" constant="20" id="KM4-57-BfR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UmX-1g-xiv" secondAttribute="trailing" id="KM4-57-BfR"/>
                                                         <constraint firstAttribute="bottom" secondItem="6Jn-no-g7Z" secondAttribute="bottom" id="L2R-AU-57K"/>
                                                         <constraint firstItem="UmX-1g-xiv" firstAttribute="top" secondItem="MUT-IZ-idZ" secondAttribute="top" id="O4e-ik-Qfq"/>
                                                         <constraint firstItem="6Jn-no-g7Z" firstAttribute="top" secondItem="UmX-1g-xiv" secondAttribute="bottom" id="ODX-Jb-j8R"/>
@@ -82,13 +90,6 @@
                                                         <constraint firstItem="6Jn-no-g7Z" firstAttribute="leading" secondItem="MUT-IZ-idZ" secondAttribute="leading" id="l2J-mv-ds1"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="kyd-LL-fHE">
-                                                    <rect key="frame" x="44" y="10" width="80" height="86"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="L21-aE-Jgt"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark" translatesAutoresizingMaskIntoConstraints="NO" id="ePT-wO-Gg1">
                                                     <rect key="frame" x="340" y="10" width="25" height="25"/>
                                                     <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -102,26 +103,25 @@
                                                 <constraint firstItem="kyd-LL-fHE" firstAttribute="leading" secondItem="oif-dF-ng2" secondAttribute="trailing" constant="8" symbolic="YES" id="2Et-Ip-8zF"/>
                                                 <constraint firstAttribute="bottom" secondItem="9QL-C8-1FM" secondAttribute="bottom" id="2It-Yq-fVd"/>
                                                 <constraint firstAttribute="trailing" secondItem="ePT-wO-Gg1" secondAttribute="trailing" constant="10" id="DOF-3F-MYg"/>
-                                                <constraint firstAttribute="bottom" secondItem="kyd-LL-fHE" secondAttribute="bottom" constant="10" id="S01-GK-QST"/>
-                                                <constraint firstItem="MUT-IZ-idZ" firstAttribute="trailing" secondItem="DRa-DM-bKe" secondAttribute="trailingMargin" id="Sqx-d6-Wty"/>
+                                                <constraint firstAttribute="trailing" secondItem="MUT-IZ-idZ" secondAttribute="trailing" constant="10" id="Sqx-d6-Wty"/>
                                                 <constraint firstItem="oif-dF-ng2" firstAttribute="top" secondItem="DRa-DM-bKe" secondAttribute="top" constant="10" id="WDW-7v-iyW"/>
-                                                <constraint firstItem="oif-dF-ng2" firstAttribute="leading" secondItem="DRa-DM-bKe" secondAttribute="leading" constant="11" id="WM1-mL-sFG"/>
+                                                <constraint firstItem="oif-dF-ng2" firstAttribute="leading" secondItem="DRa-DM-bKe" secondAttribute="leading" constant="10" id="WM1-mL-sFG"/>
                                                 <constraint firstItem="MUT-IZ-idZ" firstAttribute="top" secondItem="DRa-DM-bKe" secondAttribute="topMargin" constant="8" id="aID-sb-irK"/>
+                                                <constraint firstItem="kyd-LL-fHE" firstAttribute="top" secondItem="DRa-DM-bKe" secondAttribute="top" constant="10" id="aea-a5-gx9"/>
                                                 <constraint firstItem="ePT-wO-Gg1" firstAttribute="top" secondItem="DRa-DM-bKe" secondAttribute="top" constant="10" id="mai-tW-NCN"/>
                                                 <constraint firstItem="9QL-C8-1FM" firstAttribute="top" secondItem="DRa-DM-bKe" secondAttribute="top" id="oQe-NJ-MYT"/>
                                                 <constraint firstItem="9QL-C8-1FM" firstAttribute="leading" secondItem="DRa-DM-bKe" secondAttribute="leading" id="opI-1Z-DPz"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="MUT-IZ-idZ" secondAttribute="bottom" constant="8" id="suX-8J-Rna"/>
-                                                <constraint firstItem="MUT-IZ-idZ" firstAttribute="leading" secondItem="kyd-LL-fHE" secondAttribute="trailing" constant="7" id="tD1-0X-LhZ"/>
-                                                <constraint firstItem="kyd-LL-fHE" firstAttribute="top" secondItem="DRa-DM-bKe" secondAttribute="top" constant="10" id="tDB-wa-l1m"/>
+                                                <constraint firstItem="MUT-IZ-idZ" firstAttribute="leading" secondItem="kyd-LL-fHE" secondAttribute="trailing" constant="8" symbolic="YES" id="tD1-0X-LhZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="bodyLabel" destination="6Jn-no-g7Z" id="1WN-Ez-1eC"/>
                                             <outlet property="favImageView" destination="oif-dF-ng2" id="qUX-VM-j6F"/>
-                                            <outlet property="favView" destination="9QL-C8-1FM" id="gc3-wo-bH2"/>
                                             <outlet property="highPriorityImageView" destination="ePT-wO-Gg1" id="K0d-ds-VBf"/>
                                             <outlet property="iconImageView" destination="kyd-LL-fHE" id="cHj-yM-LZN"/>
+                                            <outlet property="notOpenedView" destination="9QL-C8-1FM" id="Rdc-Lj-6Rm"/>
                                             <outlet property="titleLabel" destination="UmX-1g-xiv" id="HEY-22-zSP"/>
                                             <segue destination="sRq-AI-qrZ" kind="show" id="4fm-vk-5ya"/>
                                         </connections>
