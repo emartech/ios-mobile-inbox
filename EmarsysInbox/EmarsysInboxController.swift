@@ -83,20 +83,20 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         
         cell.titleLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         cell.bodyLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
-        cell.favView.backgroundColor = EmarsysInboxConfig.notOpenedViewColor
+        cell.notOpenedView.backgroundColor = EmarsysInboxConfig.notOpenedViewColor
+        cell.highPriorityImageView.tintColor = .red
         
         cell.iconImageView.image = nil
         cell.imageUrl = nil
+        cell.highPriorityImageView.image = EmarsysInboxConfig.highPriorityImage
         
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return cell }
         
-        cell.highPriorityImageView.tintColor = .red
         cell.favImageView?.image = message.tags?.contains(EmarsysInboxTag.pinned) ?? false ?
             EmarsysInboxConfig.favImageOn : EmarsysInboxConfig.favImageOff
         cell.favImageView?.tintColor = message.tags?.contains(EmarsysInboxTag.pinned) ?? false ?
             EmarsysInboxConfig.bodyHighlightTintColor : EmarsysInboxConfig.bodyTintColor
-        cell.favView.isHidden = message.tags?.contains(EmarsysInboxTag.opened) ?? false
-        cell.highPriorityImageView.image = EmarsysInboxConfig.highPriorityImage
+        cell.notOpenedView.isHidden = message.tags?.contains(EmarsysInboxTag.opened) ?? false
         cell.highPriorityImageView.isHidden = !(message.tags?.contains(EmarsysInboxTag.high) ?? false)
         
         cell.titleLabel.text = message.title
