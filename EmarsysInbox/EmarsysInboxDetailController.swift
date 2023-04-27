@@ -55,7 +55,6 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         cell.imageUrl = nil
         
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return cell }
-        cell.titleLabel.text = message.title
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:MM - dd MMM YYY"
@@ -63,6 +62,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         let date = Date(timeIntervalSince1970: TimeInterval(truncating: message.receivedAt))
         let formattedDate = dateFormatter.string(from: date)
         
+        cell.titleLabel.text = message.title
         cell.datetimeLabel.text = formattedDate
         cell.bodyLabel.text = message.body
         
@@ -87,7 +87,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
     }
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width , height: view.frame.height - (view.safeAreaInsets.top + view.safeAreaInsets.bottom))
+        return collectionView.frame.size
     }
     
 }
