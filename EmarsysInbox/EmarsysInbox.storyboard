@@ -38,10 +38,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QL-C8-1FM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="8" height="100"/>
                                                     <color key="backgroundColor" red="0.3959829211" green="0.5856447816" blue="0.59385764600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="C07-jJ-ICu"/>
+                                                        <constraint firstAttribute="width" constant="8" id="C07-jJ-ICu"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="oif-dF-ng2">
