@@ -81,9 +81,9 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
                 UITapGestureRecognizer(target: self, action: #selector(favImageViewClicked)))
         }
         
+        cell.notOpenedView.backgroundColor = EmarsysInboxConfig.notOpenedViewColor
         cell.titleLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         cell.bodyLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
-        cell.notOpenedView.backgroundColor = EmarsysInboxConfig.notOpenedViewColor
         cell.highPriorityImageView.tintColor = .red
         
         cell.iconImageView.image = nil
@@ -92,11 +92,11 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return cell }
         
+        cell.notOpenedView.isHidden = message.tags?.contains(EmarsysInboxTag.opened) ?? false
         cell.favImageView?.image = message.tags?.contains(EmarsysInboxTag.pinned) ?? false ?
             EmarsysInboxConfig.favImageOn : EmarsysInboxConfig.favImageOff
         cell.favImageView?.tintColor = message.tags?.contains(EmarsysInboxTag.pinned) ?? false ?
             EmarsysInboxConfig.bodyHighlightTintColor : EmarsysInboxConfig.bodyTintColor
-        cell.notOpenedView.isHidden = message.tags?.contains(EmarsysInboxTag.opened) ?? false
         cell.highPriorityImageView.isHidden = !(message.tags?.contains(EmarsysInboxTag.high) ?? false)
         
         cell.titleLabel.text = message.title

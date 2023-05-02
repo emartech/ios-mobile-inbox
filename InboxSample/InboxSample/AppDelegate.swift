@@ -4,6 +4,7 @@
 
 import UIKit
 import EmarsysSDK
+import EmarsysInbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             builder.setMobileEngageApplicationCode("EMS98-029BE")
         }
         Emarsys.setup(config: config)
+        
+        EmarsysInboxConfig.actionButtonStyler = { button in
+            button.backgroundColor = .white
+            button.layer.cornerRadius = 10
+        }
+        EmarsysInboxConfig.actionEventHandler = { eventName, payload in
+            print("eventName: \(eventName), payload: \(payload)")
+        }
         
         return true
     }

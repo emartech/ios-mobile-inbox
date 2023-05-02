@@ -204,13 +204,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:10 - 08 Oct 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh5-IK-WOg">
-                                                    <rect key="frame" x="20" y="663" width="353" height="17"/>
+                                                    <rect key="frame" x="20" y="582" width="353" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="1Pt-MI-nvq">
+                                                    <rect key="frame" x="20" y="645.66666666666663" width="353" height="34.333333333333371"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSu-PI-bvW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="34.333333333333336"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="action button"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Fh5-IK-WOg" firstAttribute="top" secondItem="Ykl-03-Y7s" secondAttribute="bottom" constant="16" id="9ap-Hp-JiZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Pt-MI-nvq" secondAttribute="trailing" constant="20" id="A54-41-dNe"/>
                                                 <constraint firstAttribute="trailing" secondItem="sfl-0C-olx" secondAttribute="trailing" id="Df5-6s-oI0"/>
                                                 <constraint firstItem="sfl-0C-olx" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" id="Kn3-zj-AA1"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ykl-03-Y7s" secondAttribute="trailing" constant="20" id="KzV-u9-fwu"/>
@@ -218,8 +230,9 @@
                                                 <constraint firstItem="dwk-68-pYS" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="Nw7-3L-6Bu"/>
                                                 <constraint firstAttribute="trailing" secondItem="dwk-68-pYS" secondAttribute="trailing" constant="20" id="O4j-pj-A7s"/>
                                                 <constraint firstItem="Ykl-03-Y7s" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="Vn3-9Q-aKR"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fh5-IK-WOg" secondAttribute="bottom" constant="20" symbolic="YES" id="ZGK-KE-xyr"/>
                                                 <constraint firstItem="Fh5-IK-WOg" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="f42-QN-kKy"/>
+                                                <constraint firstItem="1Pt-MI-nvq" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="hN8-HS-piA"/>
+                                                <constraint firstAttribute="bottom" secondItem="1Pt-MI-nvq" secondAttribute="bottom" constant="20" symbolic="YES" id="ikP-6v-beV"/>
                                                 <constraint firstItem="sfl-0C-olx" firstAttribute="top" secondItem="yzz-LW-PA7" secondAttribute="top" id="pAf-Bp-UQc"/>
                                                 <constraint firstItem="Ykl-03-Y7s" firstAttribute="top" secondItem="dwk-68-pYS" secondAttribute="bottom" constant="8" symbolic="YES" id="s4W-86-dla"/>
                                                 <constraint firstItem="dwk-68-pYS" firstAttribute="top" secondItem="sfl-0C-olx" secondAttribute="bottom" constant="8" symbolic="YES" id="uOi-Nc-rbX"/>
@@ -227,6 +240,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="actionButtonView" destination="1Pt-MI-nvq" id="tJJ-gE-UCN"/>
                                             <outlet property="bodyLabel" destination="Ykl-03-Y7s" id="biJ-J7-zQ2"/>
                                             <outlet property="datetimeLabel" destination="Fh5-IK-WOg" id="KTM-Ta-Ych"/>
                                             <outlet property="imageView" destination="sfl-0C-olx" id="3VJ-7o-ZFb"/>

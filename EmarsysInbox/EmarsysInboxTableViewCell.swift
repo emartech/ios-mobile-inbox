@@ -8,11 +8,11 @@ class EmarsysInboxTableViewCell: UITableViewCell {
     
     static let id = "EmarsysInboxTableViewCell"
     
-    @IBOutlet weak var favImageView: UIImageView!
     @IBOutlet weak var notOpenedView: UIView!
+    @IBOutlet weak var favImageView: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
-    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var highPriorityImageView: UIImageView!
     
     var imageUrl: String?

@@ -12,6 +12,7 @@ class EmarsysInboxDetailController: UIViewController {
     var initialized = false
     var initialIndexPath: IndexPath?
     var messages: [EMSMessage]?
+    var actionButtons: [String: [ActionButton]] = [:]
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +49,10 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
             withReuseIdentifier: EmarsysInboxDetailCollectionViewCell.id, for: indexPath) as! EmarsysInboxDetailCollectionViewCell
         
         cell.titleLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
-        cell.datetimeLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         cell.bodyLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
+        cell.datetimeLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         
+        cell.actionButtonView.subviews.forEach { $0.removeFromSuperview() }
         cell.imageView.image = nil
         cell.imageUrl = nil
         
@@ -63,8 +65,17 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         let formattedDate = dateFormatter.string(from: date)
         
         cell.titleLabel.text = message.title
-        cell.datetimeLabel.text = formattedDate
         cell.bodyLabel.text = message.body
+        cell.datetimeLabel.text = formattedDate
+        
+        if let actions = message.actions {
+            if actionButtons[message.id] == nil {
+                actionButtons[message.id] = actions.map { createActionButton(for: $0) }
+            }
+            actionButtons[message.id]?.forEach {
+                cell.actionButtonView.addArrangedSubview($0)
+            }
+        }
         
         guard let imageUrl = message.imageUrl, let url = URL(string: imageUrl) else {
             cell.imageView.image = EmarsysInboxConfig.defaultImage
@@ -88,6 +99,41 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
+    }
+    
+}
+
+extension EmarsysInboxDetailController {
+    
+    class ActionButton: UIButton {
+        var action: EMSActionModelProtocol?
+    }
+    
+    func createActionButton(for action: EMSActionModelProtocol) -> ActionButton {
+        let button = ActionButton()
+        button.action = action
+        button.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
+        button.setTitle(action.title(), for: .normal)
+        button.setTitleColor(EmarsysInboxConfig.bodyTintColor, for: .normal)
+        if let actionButtonStyler = EmarsysInboxConfig.actionButtonStyler {
+            actionButtonStyler(button)
+        }
+        return button
+    }
+    
+    @objc func actionButtonClicked(sender: ActionButton) {
+        guard let action = sender.action else { return }
+        switch action.type() {
+        case "MEAppEvent":
+            guard let a = action as? EMSAppEventActionModel,
+                  let actionEventHandler = EmarsysInboxConfig.actionEventHandler else { return }
+            actionEventHandler(a.name, a.payload)
+        case "OpenExternalUrl":
+            guard let a = action as? EMSOpenExternalUrlActionModel else { return }
+            UIApplication.shared.open(a.url)
+        default:
+            break
+        }
     }
     
 }
