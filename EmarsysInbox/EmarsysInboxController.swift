@@ -8,7 +8,7 @@ import EmarsysSDK
 open class EmarsysInboxController: UIViewController {
     
     public static func new() -> EmarsysInboxController {
-        return UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: self))
+        return UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: EmarsysInboxController.self))
             .instantiateViewController(withIdentifier: "EmarsysInboxController") as! EmarsysInboxController
     }
     

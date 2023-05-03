@@ -8,7 +8,7 @@ import EmarsysSDK
 open class EmarsysInboxDetailController: UIViewController {
     
     public static func new(initialIndexPath: IndexPath? = nil, messages: [EMSMessage]? = nil) -> EmarsysInboxDetailController {
-        let controller = UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: self))
+        let controller = UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: EmarsysInboxDetailController.self))
             .instantiateViewController(withIdentifier: "EmarsysInboxDetailController") as! EmarsysInboxDetailController
         controller.initialIndexPath = initialIndexPath
         controller.messages = messages
