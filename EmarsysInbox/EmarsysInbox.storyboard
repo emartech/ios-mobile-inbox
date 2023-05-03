@@ -123,7 +123,6 @@
                                             <outlet property="iconImageView" destination="kyd-LL-fHE" id="cHj-yM-LZN"/>
                                             <outlet property="notOpenedView" destination="9QL-C8-1FM" id="Rdc-Lj-6Rm"/>
                                             <outlet property="titleLabel" destination="UmX-1g-xiv" id="HEY-22-zSP"/>
-                                            <segue destination="sRq-AI-qrZ" kind="show" id="4fm-vk-5ya"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -156,6 +155,7 @@
                         <outlet property="activityIndicatorView" destination="UzF-Nj-ob8" id="QuT-aG-kzv"/>
                         <outlet property="headerView" destination="5lE-Go-t2n" id="pCS-PO-l8D"/>
                         <outlet property="tableView" destination="RjU-01-aXD" id="cUW-hw-5qW"/>
+                        <segue destination="sRq-AI-qrZ" kind="show" identifier="ListToDetail" id="gaM-1i-ysd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tuT-cl-SMY" sceneMemberID="firstResponder"/>

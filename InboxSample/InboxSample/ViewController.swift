@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         navigationController?.pushViewController(EmarsysInboxController.new(), animated: true)
+//        Emarsys.messageInbox.fetchMessages { [weak self] (result, error) in
+//            self?.navigationController?.pushViewController(
+//                EmarsysInboxDetailController.new(messages: result?.messages), animated: true)
+//        }
 //        present(EmarsysInboxController.new(), animated: true, completion: nil)
     }
     

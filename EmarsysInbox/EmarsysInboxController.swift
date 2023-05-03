@@ -7,9 +7,9 @@ import EmarsysSDK
 
 open class EmarsysInboxController: UIViewController {
     
-    public static func new() -> UIViewController {
+    public static func new() -> EmarsysInboxController {
         return UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: self))
-            .instantiateViewController(withIdentifier: "EmarsysInboxController")
+            .instantiateViewController(withIdentifier: "EmarsysInboxController") as! EmarsysInboxController
     }
     
     @IBOutlet public weak var headerView: UIView!
@@ -120,6 +120,10 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         }.resume()
         
         return cell
+    }
+    
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: .SegueId.ListToDetail, sender: tableView.cellForRow(at: indexPath))
     }
     
     open func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

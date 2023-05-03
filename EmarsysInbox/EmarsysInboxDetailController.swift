@@ -5,14 +5,22 @@
 import UIKit
 import EmarsysSDK
 
-class EmarsysInboxDetailController: UIViewController {
+open class EmarsysInboxDetailController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    public static func new(initialIndexPath: IndexPath? = nil, messages: [EMSMessage]? = nil) -> EmarsysInboxDetailController {
+        let controller = UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: self))
+            .instantiateViewController(withIdentifier: "EmarsysInboxDetailController") as! EmarsysInboxDetailController
+        controller.initialIndexPath = initialIndexPath
+        controller.messages = messages
+        return controller
+    }
     
-    var initialized = false
-    var initialIndexPath: IndexPath?
-    var messages: [EMSMessage]?
-    var actionButtons: [String: [ActionButton]] = [:]
+    @IBOutlet public weak var collectionView: UICollectionView!
+    
+    public var initialized = false
+    public var initialIndexPath: IndexPath?
+    public var messages: [EMSMessage]?
+    public var actionButtons: [String: [EmarsysInboxActionButton]] = [:]
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,12 +115,8 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
 
 extension EmarsysInboxDetailController {
     
-    class ActionButton: UIButton {
-        var action: EMSActionModelProtocol?
-    }
-    
-    func createActionButton(for action: EMSActionModelProtocol) -> ActionButton {
-        let button = ActionButton()
+    @objc open func createActionButton(for action: EMSActionModelProtocol) -> EmarsysInboxActionButton {
+        let button = EmarsysInboxActionButton()
         button.action = action
         button.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
         button.setTitle(action.title(), for: .normal)
@@ -123,7 +127,7 @@ extension EmarsysInboxDetailController {
         return button
     }
     
-    @objc func actionButtonClicked(sender: ActionButton) {
+    @objc open func actionButtonClicked(sender: EmarsysInboxActionButton) {
         guard let action = sender.action else { return }
         switch action.type() {
         case "MEAppEvent":
