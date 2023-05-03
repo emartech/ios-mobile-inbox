@@ -196,19 +196,46 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykl-03-Y7s">
-                                                    <rect key="frame" x="20" y="322.33333333333331" width="353" height="243.66666666666669"/>
-                                                    <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:10 - 08 Oct 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh5-IK-WOg">
-                                                    <rect key="frame" x="20" y="582" width="353" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6n-iV-g0T">
+                                                    <rect key="frame" x="0.0" y="322.33333333333337" width="393" height="315.33333333333337"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPV-c7-QWR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="0.0"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" id="OKG-q7-doU"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykl-03-Y7s">
+                                                            <rect key="frame" x="20" y="0.0" width="353" height="284.33333333333331"/>
+                                                            <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:10 - 08 Oct 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh5-IK-WOg">
+                                                            <rect key="frame" x="20" y="292.33333333333331" width="353" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Fh5-IK-WOg" secondAttribute="bottom" id="8Fr-Ut-tzv"/>
+                                                        <constraint firstItem="YPV-c7-QWR" firstAttribute="leading" secondItem="d6n-iV-g0T" secondAttribute="leading" id="ARC-yT-ZLN"/>
+                                                        <constraint firstItem="Ykl-03-Y7s" firstAttribute="top" secondItem="d6n-iV-g0T" secondAttribute="top" id="Nx4-Oq-Hix"/>
+                                                        <constraint firstItem="YPV-c7-QWR" firstAttribute="width" secondItem="d6n-iV-g0T" secondAttribute="width" id="TZ8-4o-a73"/>
+                                                        <constraint firstItem="Fh5-IK-WOg" firstAttribute="top" secondItem="Ykl-03-Y7s" secondAttribute="bottom" constant="8" symbolic="YES" id="V2g-1D-kUb"/>
+                                                        <constraint firstItem="Fh5-IK-WOg" firstAttribute="leading" secondItem="d6n-iV-g0T" secondAttribute="leading" constant="20" id="WsL-13-7kb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="YPV-c7-QWR" secondAttribute="trailing" id="ayx-zt-n98"/>
+                                                        <constraint firstItem="Ykl-03-Y7s" firstAttribute="leading" secondItem="d6n-iV-g0T" secondAttribute="leading" constant="20" id="vjr-ks-9UB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ykl-03-Y7s" secondAttribute="trailing" constant="20" id="xKI-Ei-QS1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Fh5-IK-WOg" secondAttribute="trailing" constant="20" id="yPG-nt-J6F"/>
+                                                        <constraint firstItem="YPV-c7-QWR" firstAttribute="top" secondItem="d6n-iV-g0T" secondAttribute="top" id="zqw-iT-JnC"/>
+                                                    </constraints>
+                                                    <viewLayoutGuide key="contentLayoutGuide" id="yZu-e6-daT"/>
+                                                    <viewLayoutGuide key="frameLayoutGuide" id="n4o-wb-kaI"/>
+                                                </scrollView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="1Pt-MI-nvq">
                                                     <rect key="frame" x="20" y="645.66666666666663" width="353" height="34.333333333333371"/>
                                                     <subviews>
@@ -218,29 +245,36 @@
                                                             <buttonConfiguration key="configuration" style="plain" title="action button"/>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="AXX-Lc-90F"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="AXX-Lc-90F"/>
+                                                        </mask>
+                                                    </variation>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Fh5-IK-WOg" firstAttribute="top" secondItem="Ykl-03-Y7s" secondAttribute="bottom" constant="16" id="9ap-Hp-JiZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="1Pt-MI-nvq" secondAttribute="trailing" constant="20" id="A54-41-dNe"/>
+                                                <constraint firstItem="1Pt-MI-nvq" firstAttribute="top" secondItem="d6n-iV-g0T" secondAttribute="bottom" constant="8" symbolic="YES" id="A8h-uS-E5V"/>
                                                 <constraint firstAttribute="trailing" secondItem="sfl-0C-olx" secondAttribute="trailing" id="Df5-6s-oI0"/>
+                                                <constraint firstItem="d6n-iV-g0T" firstAttribute="top" secondItem="dwk-68-pYS" secondAttribute="bottom" constant="8" symbolic="YES" id="Hdv-o4-ZjL"/>
                                                 <constraint firstItem="sfl-0C-olx" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" id="Kn3-zj-AA1"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ykl-03-Y7s" secondAttribute="trailing" constant="20" id="KzV-u9-fwu"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fh5-IK-WOg" secondAttribute="trailing" constant="20" id="NAF-2G-eBk"/>
                                                 <constraint firstItem="dwk-68-pYS" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="Nw7-3L-6Bu"/>
                                                 <constraint firstAttribute="trailing" secondItem="dwk-68-pYS" secondAttribute="trailing" constant="20" id="O4j-pj-A7s"/>
-                                                <constraint firstItem="Ykl-03-Y7s" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="Vn3-9Q-aKR"/>
-                                                <constraint firstItem="Fh5-IK-WOg" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="f42-QN-kKy"/>
+                                                <constraint firstAttribute="trailing" secondItem="d6n-iV-g0T" secondAttribute="trailing" id="SaI-h7-bHq"/>
                                                 <constraint firstItem="1Pt-MI-nvq" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" constant="20" id="hN8-HS-piA"/>
                                                 <constraint firstAttribute="bottom" secondItem="1Pt-MI-nvq" secondAttribute="bottom" constant="20" symbolic="YES" id="ikP-6v-beV"/>
                                                 <constraint firstItem="sfl-0C-olx" firstAttribute="top" secondItem="yzz-LW-PA7" secondAttribute="top" id="pAf-Bp-UQc"/>
-                                                <constraint firstItem="Ykl-03-Y7s" firstAttribute="top" secondItem="dwk-68-pYS" secondAttribute="bottom" constant="8" symbolic="YES" id="s4W-86-dla"/>
                                                 <constraint firstItem="dwk-68-pYS" firstAttribute="top" secondItem="sfl-0C-olx" secondAttribute="bottom" constant="8" symbolic="YES" id="uOi-Nc-rbX"/>
                                                 <constraint firstItem="sfl-0C-olx" firstAttribute="height" secondItem="yzz-LW-PA7" secondAttribute="height" multiplier="0.4" id="uXe-AL-NZ0"/>
+                                                <constraint firstItem="d6n-iV-g0T" firstAttribute="leading" secondItem="yzz-LW-PA7" secondAttribute="leading" id="ylB-P5-pfa"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="actionButtonView" destination="1Pt-MI-nvq" id="tJJ-gE-UCN"/>
+                                            <outlet property="actionButtonViewHeight" destination="AXX-Lc-90F" id="oFr-xJ-Oav"/>
                                             <outlet property="bodyLabel" destination="Ykl-03-Y7s" id="biJ-J7-zQ2"/>
                                             <outlet property="datetimeLabel" destination="Fh5-IK-WOg" id="KTM-Ta-Ych"/>
                                             <outlet property="imageView" destination="sfl-0C-olx" id="3VJ-7o-ZFb"/>

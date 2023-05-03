@@ -53,6 +53,7 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         cell.datetimeLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         
         cell.actionButtonView.subviews.forEach { $0.removeFromSuperview() }
+        cell.actionButtonViewHeight.isActive = true
         cell.imageView.image = nil
         cell.imageUrl = nil
         
@@ -68,13 +69,14 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         cell.bodyLabel.text = message.body
         cell.datetimeLabel.text = formattedDate
         
-        if let actions = message.actions {
+        if let actions = message.actions, !actions.isEmpty {
             if actionButtons[message.id] == nil {
                 actionButtons[message.id] = actions.map { createActionButton(for: $0) }
             }
             actionButtons[message.id]?.forEach {
                 cell.actionButtonView.addArrangedSubview($0)
             }
+            cell.actionButtonViewHeight.isActive = false
         }
         
         guard let imageUrl = message.imageUrl, let url = URL(string: imageUrl) else {
