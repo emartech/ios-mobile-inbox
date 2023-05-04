@@ -22,6 +22,12 @@ extension DateFormatter {
     }()
 }
 
+extension String {
+    struct SegueId {
+        static let ListToDetail = "ListToDetail"
+    }
+}
+
 extension UITableView {
     func setEmptyView(title: String, message: String) {
         let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))

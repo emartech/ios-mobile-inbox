@@ -5,13 +5,22 @@
 import UIKit
 import EmarsysSDK
 
-class EmarsysInboxDetailController: UIViewController {
+open class EmarsysInboxDetailController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    public static func new(initialIndexPath: IndexPath? = nil, messages: [EMSMessage]? = nil) -> EmarsysInboxDetailController {
+        let controller = UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: EmarsysInboxDetailController.self))
+            .instantiateViewController(withIdentifier: "EmarsysInboxDetailController") as! EmarsysInboxDetailController
+        controller.initialIndexPath = initialIndexPath
+        controller.messages = messages
+        return controller
+    }
     
-    var initialized = false
-    var initialIndexPath: IndexPath?
-    var messages: [EMSMessage]?
+    @IBOutlet public weak var collectionView: UICollectionView!
+    
+    public var initialized = false
+    public var initialIndexPath: IndexPath?
+    public var messages: [EMSMessage]?
+    public var actionButtons: [String: [EmarsysInboxActionButton]] = [:]
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +57,15 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
             withReuseIdentifier: EmarsysInboxDetailCollectionViewCell.id, for: indexPath) as! EmarsysInboxDetailCollectionViewCell
         
         cell.titleLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
-        cell.datetimeLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         cell.bodyLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
+        cell.datetimeLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         
+        cell.actionButtonView.subviews.forEach { $0.removeFromSuperview() }
+        cell.actionButtonViewHeight.isActive = true
         cell.imageView.image = nil
         cell.imageUrl = nil
         
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return cell }
-        cell.titleLabel.text = message.title
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:MM - dd MMM YYY"
@@ -63,8 +73,19 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         let date = Date(timeIntervalSince1970: TimeInterval(truncating: message.receivedAt))
         let formattedDate = dateFormatter.string(from: date)
         
-        cell.datetimeLabel.text = formattedDate
+        cell.titleLabel.text = message.title
         cell.bodyLabel.text = message.body
+        cell.datetimeLabel.text = formattedDate
+        
+        if let actions = message.actions, !actions.isEmpty {
+            if actionButtons[message.id] == nil {
+                actionButtons[message.id] = actions.map { createActionButton(for: $0) }
+            }
+            actionButtons[message.id]?.forEach {
+                cell.actionButtonView.addArrangedSubview($0)
+            }
+            cell.actionButtonViewHeight.isActive = false
+        }
         
         guard let imageUrl = message.imageUrl, let url = URL(string: imageUrl) else {
             cell.imageView.image = EmarsysInboxConfig.defaultImage
@@ -87,7 +108,38 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
     }
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width , height: view.frame.height - (view.safeAreaInsets.top + view.safeAreaInsets.bottom))
+        return collectionView.frame.size
+    }
+    
+}
+
+extension EmarsysInboxDetailController {
+    
+    @objc open func createActionButton(for action: EMSActionModelProtocol) -> EmarsysInboxActionButton {
+        let button = EmarsysInboxActionButton()
+        button.action = action
+        button.addTarget(self, action: #selector(actionButtonClicked), for: .touchUpInside)
+        button.setTitle(action.title(), for: .normal)
+        button.setTitleColor(EmarsysInboxConfig.bodyTintColor, for: .normal)
+        if let actionButtonStyler = EmarsysInboxConfig.actionButtonStyler {
+            actionButtonStyler(button)
+        }
+        return button
+    }
+    
+    @objc open func actionButtonClicked(sender: EmarsysInboxActionButton) {
+        guard let action = sender.action else { return }
+        switch action.type() {
+        case "MEAppEvent":
+            guard let a = action as? EMSAppEventActionModel,
+                  let actionEventHandler = EmarsysInboxConfig.actionEventHandler else { return }
+            actionEventHandler(a.name, a.payload)
+        case "OpenExternalUrl":
+            guard let a = action as? EMSOpenExternalUrlActionModel else { return }
+            UIApplication.shared.open(a.url)
+        default:
+            break
+        }
     }
     
 }

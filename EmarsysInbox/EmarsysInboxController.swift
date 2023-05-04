@@ -7,9 +7,9 @@ import EmarsysSDK
 
 open class EmarsysInboxController: UIViewController {
     
-    public static func new() -> UIViewController {
-        return UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: self))
-            .instantiateViewController(withIdentifier: "EmarsysInboxController")
+    public static func new() -> EmarsysInboxController {
+        return UIStoryboard.init(name: "EmarsysInbox", bundle: Bundle(for: EmarsysInboxController.self))
+            .instantiateViewController(withIdentifier: "EmarsysInboxController") as! EmarsysInboxController
     }
     
     @IBOutlet public weak var headerView: UIView!
@@ -81,9 +81,9 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
                 UITapGestureRecognizer(target: self, action: #selector(favImageViewClicked)))
         }
         
+        cell.notOpenedView.backgroundColor = EmarsysInboxConfig.notOpenedViewColor
         cell.titleLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
         cell.bodyLabel.textColor = EmarsysInboxConfig.bodyForegroundColor
-        cell.notOpenedView.backgroundColor = EmarsysInboxConfig.notOpenedViewColor
         cell.highPriorityImageView.tintColor = .red
         
         cell.iconImageView.image = nil
@@ -92,11 +92,11 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return cell }
         
+        cell.notOpenedView.isHidden = message.tags?.contains(EmarsysInboxTag.opened) ?? false
         cell.favImageView?.image = message.tags?.contains(EmarsysInboxTag.pinned) ?? false ?
             EmarsysInboxConfig.favImageOn : EmarsysInboxConfig.favImageOff
         cell.favImageView?.tintColor = message.tags?.contains(EmarsysInboxTag.pinned) ?? false ?
             EmarsysInboxConfig.bodyHighlightTintColor : EmarsysInboxConfig.bodyTintColor
-        cell.notOpenedView.isHidden = message.tags?.contains(EmarsysInboxTag.opened) ?? false
         cell.highPriorityImageView.isHidden = !(message.tags?.contains(EmarsysInboxTag.high) ?? false)
         
         cell.titleLabel.text = message.title
@@ -120,6 +120,10 @@ extension EmarsysInboxController: UITableViewDataSource, UITableViewDelegate {
         }.resume()
         
         return cell
+    }
+    
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: .SegueId.ListToDetail, sender: tableView.cellForRow(at: indexPath))
     }
     
     open func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		214C92D2689E8F0EA30DB746 /* Pods_EmarsysInbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3DBB1502F7BA0899589D32 /* Pods_EmarsysInbox.framework */; };
+		841B22AE2A02105E00E5223D /* EmarsysInboxActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B22AD2A02105E00E5223D /* EmarsysInboxActionButton.swift */; };
 		C8376470295C3699002E6D1F /* EmarsysInboxDefaultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C837646F295C3699002E6D1F /* EmarsysInboxDefaultHeaderView.swift */; };
 		CC04A11024AD92A00084DCE4 /* EmarsysInbox.h in Headers */ = {isa = PBXBuildFile; fileRef = CC04A10E24AD92A00084DCE4 /* EmarsysInbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC04A11E24AD96460084DCE4 /* EmarsysInboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC04A11624AD96450084DCE4 /* EmarsysInboxTableViewCell.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841B22AD2A02105E00E5223D /* EmarsysInboxActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmarsysInboxActionButton.swift; sourceTree = "<group>"; };
 		92B932D17F6684E011D578DE /* Pods-EmarsysInbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmarsysInbox.debug.xcconfig"; path = "Target Support Files/Pods-EmarsysInbox/Pods-EmarsysInbox.debug.xcconfig"; sourceTree = "<group>"; };
 		A793FD7A4790C946FB8D659D /* Pods-EmarsysInbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmarsysInbox.release.xcconfig"; path = "Target Support Files/Pods-EmarsysInbox/Pods-EmarsysInbox.release.xcconfig"; sourceTree = "<group>"; };
 		BB3DBB1502F7BA0899589D32 /* Pods_EmarsysInbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmarsysInbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,9 +89,10 @@
 				CC04A11624AD96450084DCE4 /* EmarsysInboxTableViewCell.swift */,
 				CC04A11824AD96450084DCE4 /* EmarsysInboxDetailController.swift */,
 				CC04A11C24AD96460084DCE4 /* EmarsysInboxDetailCollectionViewCell.swift */,
+				C837646F295C3699002E6D1F /* EmarsysInboxDefaultHeaderView.swift */,
+				841B22AD2A02105E00E5223D /* EmarsysInboxActionButton.swift */,
 				CC04A11724AD96450084DCE4 /* EmarsysInboxTag.swift */,
 				CC04A11A24AD96450084DCE4 /* EmarsysInboxExtensions.swift */,
-				C837646F295C3699002E6D1F /* EmarsysInboxDefaultHeaderView.swift */,
 				CC04A12624B316F50084DCE4 /* EmarsysInbox.xcassets */,
 				CC04A10E24AD92A00084DCE4 /* EmarsysInbox.h */,
 				CC04A10F24AD92A00084DCE4 /* Info.plist */,
@@ -222,6 +225,7 @@
 				CC04A12224AD96460084DCE4 /* EmarsysInboxExtensions.swift in Sources */,
 				CC04A12024AD96460084DCE4 /* EmarsysInboxDetailController.swift in Sources */,
 				CC04A11E24AD96460084DCE4 /* EmarsysInboxTableViewCell.swift in Sources */,
+				841B22AE2A02105E00E5223D /* EmarsysInboxActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
