@@ -44,14 +44,14 @@
                                                         <constraint firstAttribute="width" constant="8" id="C07-jJ-ICu"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="oif-dF-ng2">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ems-inbox-star" translatesAutoresizingMaskIntoConstraints="NO" id="oif-dF-ng2">
                                                     <rect key="frame" x="10" y="10" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="rGH-jk-jHb"/>
                                                         <constraint firstAttribute="height" constant="25" id="sKe-uU-EUv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="kyd-LL-fHE">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ems-inbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="kyd-LL-fHE">
                                                     <rect key="frame" x="43" y="10" width="80" height="80"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -90,7 +90,7 @@
                                                         <constraint firstItem="6Jn-no-g7Z" firstAttribute="leading" secondItem="MUT-IZ-idZ" secondAttribute="leading" id="l2J-mv-ds1"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark" translatesAutoresizingMaskIntoConstraints="NO" id="ePT-wO-Gg1">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ems-inbox-exclamationmark" translatesAutoresizingMaskIntoConstraints="NO" id="ePT-wO-Gg1">
                                                     <rect key="frame" x="358" y="10" width="25" height="25"/>
                                                     <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -187,7 +187,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="700"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sfl-0C-olx">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ems-inbox-logo" translatesAutoresizingMaskIntoConstraints="NO" id="sfl-0C-olx">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwk-68-pYS">
@@ -308,9 +308,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exclamationmark" width="7" height="47"/>
-        <image name="logo" width="584" height="584"/>
-        <image name="star" width="55" height="52"/>
+        <image name="ems-inbox-exclamationmark" width="7" height="47"/>
+        <image name="ems-inbox-logo" width="584" height="584"/>
+        <image name="ems-inbox-star" width="55" height="52"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

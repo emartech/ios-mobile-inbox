@@ -16,11 +16,11 @@ public class EmarsysInboxConfig {
     public static var bodyHighlightTintColor: UIColor? = .color(fromHexCode: 0xFFD700FF)
     public static var activityIndicatorColor: UIColor? = .darkGray
     public static var notOpenedViewColor: UIColor? = .color(fromHexCode: 0x5F9F9FFF)
-    public static var favImageOff: UIImage? = UIImage(named: "star", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
-    public static var favImageOn: UIImage? = UIImage(named: "starfill", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
+    public static var favImageOff: UIImage? = UIImage(named: "ems-inbox-star", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
+    public static var favImageOn: UIImage? = UIImage(named: "ems-inbox-starfill", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
     public static var iconImageBackgroundColor: UIColor? = .white
-    public static var defaultImage: UIImage? = UIImage(named: "logo", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
-    public static var highPriorityImage: UIImage? = UIImage(named: "exclamationmark", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
+    public static var defaultImage: UIImage? = UIImage(named: "ems-inbox-logo", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
+    public static var highPriorityImage: UIImage? = UIImage(named: "ems-inbox-exclamationmark", in: Bundle(for: EmarsysInboxConfig.self), compatibleWith: nil)
     public static var actionButtonStyler: ((UIButton) -> Void)?
     public static var actionEventHandler: EMSEventHandlerBlock?
     
