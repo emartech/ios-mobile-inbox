@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let config = EMSConfig.make { builder in
-            builder.setMobileEngageApplicationCode("EMS98-029BE")
+            builder.setMobileEngageApplicationCode("EMS55-DA3B5")
         }
         Emarsys.setup(config: config)
         
