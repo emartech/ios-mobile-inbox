@@ -1,5 +1,5 @@
 PODS:
-  - EmarsysSDK (3.2.6)
+  - EmarsysSDK (3.3.1)
 
 DEPENDENCIES:
   - EmarsysSDK
@@ -9,8 +9,8 @@ SPEC REPOS:
     - EmarsysSDK
 
 SPEC CHECKSUMS:
-  EmarsysSDK: 4f4742deec5e522ed87b812307a45cdd3e1731f0
+  EmarsysSDK: 0dfc3db1dc107483a20d7f2c1e06541111aa88a9
 
 PODFILE CHECKSUM: efaa629722be8e58d2a75cb060926a8a0d89c4b1
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
