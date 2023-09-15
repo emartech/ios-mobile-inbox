@@ -67,15 +67,10 @@ extension EmarsysInboxDetailController: UICollectionViewDataSource, UICollection
         
         guard indexPath.row < messages?.count ?? 0, let message = messages?[indexPath.row] else { return cell }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM - dd MMM YYY"
-        dateFormatter.locale = Locale.current
-        let date = Date(timeIntervalSince1970: TimeInterval(truncating: message.receivedAt))
-        let formattedDate = dateFormatter.string(from: date)
-        
         cell.titleLabel.text = message.title
         cell.bodyLabel.text = message.body
-        cell.datetimeLabel.text = formattedDate
+        cell.datetimeLabel.text = DateFormatter.HHmmddMMMyyyy.string(
+            from: Date(timeIntervalSince1970: TimeInterval(truncating: message.receivedAt)))
         
         if let actions = message.actions, !actions.isEmpty {
             if actionButtons[message.id] == nil {
