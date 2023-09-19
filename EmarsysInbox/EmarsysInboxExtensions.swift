@@ -20,6 +20,13 @@ extension DateFormatter {
         df.dateFormat = "yyyy-MM-dd HH:mm"
         return df
     }()
+
+    static let HHmmddMMMyyyy: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm - dd MMM yyyy"
+        df.locale = Locale.current
+        return df
+    }()
 }
 
 extension String {
